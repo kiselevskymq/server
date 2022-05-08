@@ -1,4 +1,4 @@
-import express, {Express} from "express";
+import express, {Express, NextFunction, Request, Response} from "express";
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import router from "./routes";
@@ -21,12 +21,21 @@ const index: Express = express();
 const port = process.env.PORT || 3020;
 
 
+var allowCrossDomain = function(req: Request, res:Response, next:NextFunction) {
+    res.header('Access-Control-Allow-Origin', 'https://front-virid-mu.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
+
 var corsOptions = {
     origin: 'https://front-virid-mu.vercel.app',
     optionsSuccessStatus: 200,
 }
-index.options('*', cors())
-index.use(cors(corsOptions));
+//index.options('*', cors())
+//index.use(cors(corsOptions));
+index.use(allowCrossDomain);
 index.use(express.json());
 index.use(express.urlencoded({extended: false}));
 index.use(express.static('public'))
