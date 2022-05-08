@@ -10,7 +10,7 @@ const cors = require('cors')
 
 dotenv.config();
 
-const databaseURI = process.env.DATABASE_URI || 'mongodb://localhost:27017/ac'
+const databaseURI = 'mongodb+srv://kiselevskym:maksdo86@cluster0.cnzfx.mongodb.net/kievsk'
 
 mongoose.connect(databaseURI).then(() => console.log("connected"))
 mongoose.set('debug', !!process.env.DATABASE_URI);
