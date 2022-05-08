@@ -21,11 +21,11 @@ const index: Express = express();
 const port = process.env.PORT || 3020;
 
 
-const corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200,
+const corsOption = {
+    credentials: true,
+    origin: ['*']
 }
-index.use(cors(corsOptions));
+index.use(cors(corsOption));
 
 index.use(corsM)
 
