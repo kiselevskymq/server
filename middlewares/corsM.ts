@@ -1,6 +1,7 @@
 import {Request, Response, NextFunction} from "express"
 
 export default (req: Request, res: Response, next: NextFunction) => {
+    // @ts-ignore
     res.setHeader('Access-Control-Allow-Credentials', true)
     res.setHeader('Access-Control-Allow-Origin', '*')
     // another common pattern

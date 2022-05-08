@@ -26,6 +26,7 @@ const corsOption = {
     origin: ['*']
 }
 index.use(cors(corsOption));
+index.use(corsM);
 
 
 
