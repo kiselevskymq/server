@@ -20,11 +20,7 @@ const index: Express = express();
 const port = process.env.PORT || 3020;
 
 
-const corsOptions = {
-    origin: 'https://qwertyo-kiselevskym.vercel.app',
-    optionsSuccessStatus: 200
-}
-index.use(cors(corsOptions))
+index.options('*', cors())
 
 index.use(express.json());
 index.use(express.urlencoded({extended: false}));
