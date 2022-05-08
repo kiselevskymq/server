@@ -19,16 +19,19 @@ mongoose.set('debug', !!process.env.DATABASE_URI);
 const index: Express = express();
 const port = process.env.PORT || 3020;
 
+
+const corsOptions = {
+    origin: 'https://qwertyo-kiselevskym.vercel.app',
+    optionsSuccessStatus: 200
+}
+index.use(cors(corsOptions))
+
 index.use(express.json());
 index.use(express.urlencoded({extended: false}));
 index.use(express.static('public'))
 index.use(helmet())
-index.use(cors({
-    "origin": "*",
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-    "preflightContinue": false,
-    "optionsSuccessStatus": 204
-}))
+
+
 
 
 index.use('/heroes', verifyToken, router);
