@@ -22,7 +22,7 @@ const port = process.env.PORT || 3020;
 
 
 var corsOptions = {
-    origin: 'https://front-virid-mu.vercel.app',
+    origin: 'https://test.com',
     optionsSuccessStatus: 200,
 }
 index.use(cors(corsOptions));
