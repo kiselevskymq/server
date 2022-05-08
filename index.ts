@@ -21,11 +21,11 @@ const index: Express = express();
 const port = process.env.PORT || 3020;
 
 
-index.use(cors({
-    origin: 'https://qwertyo-kiselevskym.vercel.app/',
-    credentials: true,
-    optionSuccessStatus: 200
-}));
+const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200,
+}
+index.use(cors(corsOptions));
 
 index.use(corsM)
 
