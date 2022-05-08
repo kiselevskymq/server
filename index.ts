@@ -16,21 +16,21 @@ mongoose.connect(databaseURI).then(() => console.log("connected"))
 mongoose.set('debug', !!process.env.DATABASE_URI);
 
 
-const app: Express = express();
+const index: Express = express();
 const port = process.env.PORT || 3020;
 
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-app.use(express.static('public'))
-app.use(helmet())
-app.use(cors())
+index.use(express.json());
+index.use(express.urlencoded({extended: false}));
+index.use(express.static('public'))
+index.use(helmet())
+index.use(cors())
 
 
-app.use('/heroes', verifyToken, router);
+index.use('/heroes', verifyToken, router);
 
 
-app.listen(port, () => {
+index.listen(port, () => {
     console.log(`[server]: Server is running at https://localhost:${port}`);
 });
 
-module.exports = app;
+module.exports = index;
