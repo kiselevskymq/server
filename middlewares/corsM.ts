@@ -19,7 +19,3 @@ export default (req: Request, res: Response, next: NextFunction) => {
     next()
 }
 
-const handler = (req, res) => {
-    const d = new Date()
-    res.end(d.toString())
-}
