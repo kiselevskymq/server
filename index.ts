@@ -23,7 +23,10 @@ index.use(express.json());
 index.use(express.urlencoded({extended: false}));
 index.use(express.static('public'))
 index.use(helmet())
-index.use(cors())
+index.use(cors({
+    origin: 'https://qwertyo-kiselevskym.vercel.app/',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}))
 
 
 index.use('/heroes', verifyToken, router);
