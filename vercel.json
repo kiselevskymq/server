@@ -19,7 +19,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "*"
+          "value": "https://front-virid-mu.vercel.app/"
         },
         {
           "key": "Access-Control-Allow-Headers",
