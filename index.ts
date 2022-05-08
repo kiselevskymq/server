@@ -25,6 +25,7 @@ var corsOptions = {
     origin: 'https://front-virid-mu.vercel.app',
     optionsSuccessStatus: 200,
 }
+index.options('*', cors())
 index.use(cors(corsOptions));
 index.use(express.json());
 index.use(express.urlencoded({extended: false}));
