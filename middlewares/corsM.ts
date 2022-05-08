@@ -1,8 +1,24 @@
-import {Response, Request, NextFunction} from 'express'
+import {Request, Response, NextFunction} from "express"
 
-export default function corsM(req:Request, res:Response, next:NextFunction) {
-    res.setHeader("Access-Control-Allow-Origin", '*');
-    res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
+export default (req: Request, res: Response, next: NextFunction) => {
+    res.setHeader('Access-Control-Allow-Credentials', true)
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    // another common pattern
+    // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+    )
+    if (req.method === 'OPTIONS') {
+        res.status(200).end()
+        return
+    }
+
     next()
+}
+
+const handler = (req, res) => {
+    const d = new Date()
+    res.end(d.toString())
 }

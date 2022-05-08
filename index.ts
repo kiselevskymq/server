@@ -27,7 +27,6 @@ const corsOption = {
 }
 index.use(cors(corsOption));
 
-index.use(corsM)
 
 
 index.use(express.json());
