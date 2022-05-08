@@ -21,15 +21,11 @@ const index: Express = express();
 const port = process.env.PORT || 3020;
 
 
-const corsOption = {
-    credentials: true,
-    origin: ['*']
+var corsOptions = {
+    origin: 'https://vercel.com/kiselevskym/qwertyo',
+    optionsSuccessStatus: 200,
 }
-index.use(cors(corsOption));
-index.use(corsM);
-
-
-
+index.use(cors(corsOptions));
 index.use(express.json());
 index.use(express.urlencoded({extended: false}));
 index.use(express.static('public'))
