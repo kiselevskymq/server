@@ -21,12 +21,12 @@ const port = process.env.PORT || 3020;
 
 
 index.use(cors({
-    origin: ['https://qwertyo-kiselevskym.vercel.app/']
+    origin:'https://qwertyo-kiselevskym.vercel.app/',
+    credentials:true,
+    optionSuccessStatus:200
 }));
 
-index.use(cors({
-    origin: '*'
-}));
+
 
 index.use(express.json());
 index.use(express.urlencoded({extended: false}));
