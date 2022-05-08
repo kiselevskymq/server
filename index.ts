@@ -22,7 +22,7 @@ const port = process.env.PORT || 3020;
 
 
 var corsOptions = {
-    origin: 'https://vercel.com/kiselevskym/qwertyo',
+    origin: '*',
     optionsSuccessStatus: 200,
 }
 index.use(cors(corsOptions));
