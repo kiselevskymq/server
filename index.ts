@@ -28,7 +28,7 @@ var corsOptions = {
 
 index.use(express.json());
 index.use(express.urlencoded({extended: false}));
-index.use(express.static('public'))
+index.use(express.static('/public'))
 index.use(helmet())
 
 //index.options('*', cors())
