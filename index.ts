@@ -34,6 +34,7 @@ index.use(helmet())
 index.use(cors(corsOptions));
 
 
+index.use('/heroes', router);
 
 
 index.listen(port, () => {
