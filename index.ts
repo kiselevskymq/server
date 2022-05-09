@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import router from "./routes";
 import helmet from "helmet";
+import * as path from "path";
 
 const cors = require('cors')
 
@@ -28,7 +29,7 @@ var corsOptions = {
 
 index.use(express.json());
 index.use(express.urlencoded({extended: false}));
-index.use(express.static('/public'))
+index.use(express.static(path.join(__dirname, 'public')));
 index.use(helmet())
 
 //index.options('*', cors())
