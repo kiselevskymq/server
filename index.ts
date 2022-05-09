@@ -2,7 +2,6 @@ import express, {Express, NextFunction, Request, Response} from "express";
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import router from "./routes";
-import verifyToken from "./middlewares/verifyToken";
 import helmet from "helmet";
 
 const cors = require('cors')
@@ -35,7 +34,6 @@ index.use(helmet())
 index.use(cors(corsOptions));
 
 
-index.use('/heroes', verifyToken, router);
 
 
 index.listen(port, () => {
