@@ -21,7 +21,7 @@ const port = process.env.PORT || 3020;
 
 
 var corsOptions = {
-    origin: '*',
+    origin: 'localhost:3000',
     optionsSuccessStatus: 200,
 }
 
@@ -32,19 +32,8 @@ index.use(express.static('public'))
 index.use(helmet())
 
 //index.options('*', cors())
-//index.use(cors(corsOptions));
+index.use(cors(corsOptions));
 
-index.use(function (req, res, next) {
-
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    // @ts-ignore
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
-
-
-    next();
-});
 
 index.use('/heroes', verifyToken, router);
 
