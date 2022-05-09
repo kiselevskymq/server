@@ -22,7 +22,7 @@ const port = process.env.PORT || 3020;
 
 
 var allowCrossDomain = function(req: Request, res:Response, next:NextFunction) {
-    res.header('Access-Control-Allow-Origin', 'https://front-virid-mu.vercel.app');
+    res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
