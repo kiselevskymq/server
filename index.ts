@@ -21,21 +21,15 @@ const index: Express = express();
 const port = process.env.PORT || 3020;
 
 
-var allowCrossDomain = function(req: Request, res:Response, next:NextFunction) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
 
-    next();
-}
 
 var corsOptions = {
-    origin: 'https://front-virid-mu.vercel.app',
+    origin: '*',
     optionsSuccessStatus: 200,
 }
-//index.options('*', cors())
-//index.use(cors(corsOptions));
-index.use(allowCrossDomain);
+index.options('*', cors())
+index.use(cors(corsOptions));
+
 index.use(express.json());
 index.use(express.urlencoded({extended: false}));
 index.use(express.static('public'))
